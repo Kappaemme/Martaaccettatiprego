@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rivelazione d'amore</title>
+    <style>
+        body {
+            background-color: #d8b3ff; /* Viola chiaro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        .container {
+            text-align: center;
+        }
+        .hidden {
+            display: none;
+        }
+        .fade-in {
+            animation: fadeIn 1s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: white;
+            border: none;
+            color: #d8b3ff; /* Viola chiaro */
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #e6ccff; /* Viola più chiaro */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="step1" class="fade-in">
+            <h1>So cosa siamo ormai però...</h1>
+            <button onclick="showStep(2)">continua</button>
+        </div>
+        <div id="step2" class="hidden fade-in">
+            <h1>Ti amo così tanto che sento il bisogno e la necessità di farlo...</h1>
+            <button onclick="showStep(3)">continua</button>
+        </div>
+        <div id="step3" class="hidden fade-in">
+            <h1>Ti vuoi mettere con me?</h1>
+            <button onclick="showStep(4)">Sì, ti amo</button>
+            <button onclick="showStep(4)">Sì, ti amissimo</button>
+        </div>
+        <div id="step4" class="hidden fade-in">
+            <h1>Allora posso dire che siamo ufficialmente fidanzati? 22/07/24</h1>
+        </div>
+    </div>
+
+    <script>
+        function showStep(step) {
+            document.querySelectorAll('.container > div').forEach(div => {
+                div.classList.add('hidden');
+                div.classList.remove('fade-in');
+            });
+            const nextStep = document.getElementById(`step${step}`);
+            nextStep.classList.remove('hidden');
+            nextStep.classList.add('fade-in');
+        }
+    </script>
+</body>
+</html>
